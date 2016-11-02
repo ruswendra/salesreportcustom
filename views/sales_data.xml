@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<!-- ini definisi tree course -->
+		<record id="sales_data_list" model="ir.ui.view">
+			<field name="name">sales_data_list</field>
+			<field name="model">sales_report_custom.sales_data</field>
+			<field name="arch" type="xml">
+				<tree string="Sales Data">
+					<field name="date" />
+					<field name="team_id" />
+					<field name="salesperson_id" />
+					<field name="product_id" />
+					<field name="price_total" />
+				</tree>
+			</field>
+
+		</record>
+
+		<record model="ir.ui.view" id="salesdata_graph_view">
+			<field name="name">sales_data_graph</field>
+			<field name="model">sales_report_custom.sales_data</field>
+			<field name="arch" type="xml">
+				<graph string="Amount by salesperson" type="bar">
+					<field name="date" type="row" />
+					<field name="price_total" type="measure" />
+				</graph>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="salesdata_pivot_view">
+			<field name="name">sales_data_pivot</field>
+			<field name="model">sales_report_custom.sales_data</field>
+			<field name="arch" type="xml">
+				<pivot string="Amount by salesperson">
+					<field name="salesperson_id" type="col" />
+					<field name="date" interval="month" type="row" />
+					<field name="price_total" type="measure" />
+				</pivot>
+			</field>
+		</record>
+
+		<!-- <record model="ir.ui.view" id="salesdata_graph_view"> -->
+		<!-- <field name="name">sales_data_graph</field> -->
+		<!-- <field name="model">duta_alisan.salesdata</field> -->
+		<!-- <field name="arch" type="xml"> -->
+		<!-- <graph string="amount by salesperson" type="Bar"> -->
+		<!-- <field name="salesperson" /> -->
+		<!-- <field name="total" type="measure" /> -->
+		<!-- </graph> -->
+		<!-- </field> -->
+		<!-- </record> -->
+
+
+
+
+
+		<!-- <record id="view_res_partner_filter2" model="ir.ui.view"> -->
+		<!-- <field name="name">sales_data_filter</field> -->
+		<!-- <field name="model">duta_alisan.salesdata</field> -->
+		<!-- <field name="arch" type="xml"> -->
+		<!-- <search string="Automatic filter"> -->
+		<!-- <filter string="date_transaction" name="date_transaction" -->
+		<!-- domain="[('date_transaction','>',context.get('date_transaction'))]" 
+			/> -->
+		<!-- </search> -->
+		<!-- </field> -->
+		<!-- </record> -->
+
+	<!-- 	<record id="salesdata_pivot_view" model="ir.ui.view">
+			<field name="name">sales_data_search</field>
+			<field name="model">sales_report_custom.sales_data</field>
+			<field name="arch" type="xml">
+				<search string="Sales Search">
+					<group expand="1" string="Group By">
+						<filter string="Salesperson" name="User"
+							context="{'group_by':'salesperson_id'}" />
+						<filter string="Sales Team" context="{'group_by':'team_id'}" />
+						<filter string="Order per Month" context="{'group_by':'date:month'}" />
+					</group>
+				</search>
+			</field>
+		</record> -->
+	</data>
+</openerp>

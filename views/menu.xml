@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<record id="action_salesinquiry_list" model="ir.actions.act_window"> <!-- untuk action klik sales report -->
+		<field name="name">Sales Results Inquiry</field>
+		<field name="res_model">sales_report_custom.sales_inquiry</field>
+		<field name="view_type">form</field>
+		<field name="target">new</field>
+		<field name="view_mode">form</field>
+	</record>
+	<record id="action_salesteam_list" model="ir.actions.act_window">
+		<field name="name">Sales Team Data</field>
+		<field name="res_model">sales_report_custom.salesperson</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">
+				Test
+			</p>
+			<p>Testing</p>
+		</field>
+	</record>
+
+	<record id="action_salesdata_list" model="ir.actions.act_window"> <!-- untuk action klik sales data -->
+		<field name="name">Sales Data</field>
+		<field name="res_model">sales_report_custom.sales_data</field>
+		<field name="view_mode">tree,pivot,graph</field>
+		<field name="context">{"search_default_date_transaction":1}</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">
+				You cannot access this menu
+			</p>
+			<p></p>
+		</field>
+	</record>
+	<data>
+		<menuitem name="Sales Report Custom" action="action_salesinquiry_list"
+			id="menu_report_sales_all" parent="base.menu_sale_report" sequence="50" />
+		<menuitem name="Sales team test" action="action_salesteam_list"
+			id="menu_salesteam" parent="base.menu_sale_report" sequence="100" />
+	</data>
+
+</openerp>

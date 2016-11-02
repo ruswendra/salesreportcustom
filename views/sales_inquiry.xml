@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="sales_results_form" model="ir.ui.view">
+			<field name="name">sales_inquiry</field>
+			<field name="model">sales_report_custom.sales_inquiry</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Sales Inquiry" version="7.0">
+					<sheet>
+						<group colspan="2">
+							<field name="sales_ids" widget="many2many_tags" options="{'no_create_edit': True}" />
+						</group>
+						<group>
+							<field name="period_filter"></field>
+							<field name="date_transaction"
+								attrs="{'invisible':[('period_filter', '!=', 'Daily')]}" />
+							<field name="date_transaction_from"
+								attrs="{'invisible':[('period_filter', '!=', 'Periodic')]}" />
+							<field name="date_transaction_to"
+								attrs="{'invisible':[('period_filter', '!=', 'Periodic')]}" />
+						</group>
+					</sheet>
+					<footer>
+						<!-- <button string="View" name="%(action_salesdata_list)d" -->
+						<!-- type="action" class="oe_highlight" /> -->
+						<!-- <button string="Cancel" name="action_wizard_close" class="oe_highlight" -->
+						<!-- special="cancel" type="object" /> -->
+						<button string="View" name="action_open_form_report" type="object"
+							class="oe_highlight" />
+					</footer>
+
+				</form>
+
+			</field>
+
+		</record>
+	</data>
+</openerp>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="sales_team_list_tree" model="ir.ui.view">
+			<field name="name">sales_team_list_tree</field>
+			<field name="model">sales_report_custom.salesperson</field>
+			<field name="arch" type="xml">
+				<tree string="Salesperson">
+					<field name="salesperson_id" />
+					<field name="team_id" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="sales_team_list_form" model="ir.ui.view">
+			<field name="name">sales_team_list_form</field>
+			<field name="model">sales_report_custom.salesperson</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Sales Data" version="7.0">
+					<sheet>
+						<group colspan="2">
+							<field name="salesperson_id" />
+							<field name="team_id" />
+						</group>
+					</sheet>
+
+
+				</form>
+
+			</field>
+
+		</record>
+	</data>
+</openerp>
